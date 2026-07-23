@@ -77,3 +77,18 @@ resetBtn.addEventListener("click", function(){
     updateFilters();
 
 });
+
+const textInput = document.getElementById("textInput");
+const addTextBtn = document.getElementById("addTextBtn");
+
+addTextBtn.addEventListener("click", function(){
+
+    const text = document.createElement("div");
+
+    text.innerText = textInput.value;
+
+    text.className = "image-text";
+
+    document.querySelector(".canvas-area").appendChild(text);
+
+});
