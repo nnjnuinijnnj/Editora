@@ -3,6 +3,10 @@ const preview = document.getElementById("preview");
 
 const rotateBtn = document.getElementById("rotateBtn");
 const brightness = document.getElementById("brightness");
+const bwBtn = document.getElementById("bwBtn");
+const resetBtn = document.getElementById("resetBtn");
+
+let grayscale = 0;
 const saturation = document.getElementById("saturation");
 const contrast = document.getElementById("contrast");
 
@@ -37,15 +41,39 @@ rotateBtn.addEventListener("click", function () {
 });
 
 // اعمال فیلترها
-function updateFilters() {
+function updateFilters(){
 
     preview.style.filter =
         `brightness(${brightness.value}%)
          contrast(${contrast.value}%)
-         saturate(${saturation.value}%)`;
+         saturate(${saturation.value}%)
+         grayscale(${grayscale}%)`;
 
 }
 
 brightness.addEventListener("input", updateFilters);
 contrast.addEventListener("input", updateFilters);
 saturation.addEventListener("input", updateFilters);
+
+bwBtn.addEventListener("click", function(){
+
+    grayscale = grayscale === 100 ? 0 : 100;
+
+    updateFilters();
+
+});
+
+resetBtn.addEventListener("click", function(){
+
+    brightness.value = 100;
+    contrast.value = 100;
+    saturation.value = 100;
+
+    rotation = 0;
+    grayscale = 0;
+
+    preview.style.transform = "rotate(0deg)";
+
+    updateFilters();
+
+});
