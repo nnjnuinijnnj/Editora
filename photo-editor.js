@@ -3,6 +3,7 @@ const preview = document.getElementById("preview");
 
 const rotateBtn = document.getElementById("rotateBtn");
 const brightness = document.getElementById("brightness");
+const contrast = document.getElementById("contrast");
 
 let rotation = 0;
 
@@ -34,9 +35,13 @@ rotateBtn.addEventListener("click", function () {
 
 });
 
-// روشنایی
-brightness.addEventListener("input", function () {
+// اعمال فیلترها
+function updateFilters() {
 
-    preview.style.filter = `brightness(${brightness.value}%)`;
+    preview.style.filter =
+        `brightness(${brightness.value}%) contrast(${contrast.value}%)`;
 
-});
+}
+
+brightness.addEventListener("input", updateFilters);
+contrast.addEventListener("input", updateFilters);
