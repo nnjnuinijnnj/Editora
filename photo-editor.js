@@ -3,6 +3,7 @@ const preview = document.getElementById("preview");
 
 const rotateBtn = document.getElementById("rotateBtn");
 const brightness = document.getElementById("brightness");
+const saturation = document.getElementById("saturation");
 const contrast = document.getElementById("contrast");
 
 let rotation = 0;
@@ -39,9 +40,12 @@ rotateBtn.addEventListener("click", function () {
 function updateFilters() {
 
     preview.style.filter =
-        `brightness(${brightness.value}%) contrast(${contrast.value}%)`;
+        `brightness(${brightness.value}%)
+         contrast(${contrast.value}%)
+         saturate(${saturation.value}%)`;
 
 }
 
 brightness.addEventListener("input", updateFilters);
 contrast.addEventListener("input", updateFilters);
+saturation.addEventListener("input", updateFilters);
