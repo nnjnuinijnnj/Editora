@@ -1,6 +1,12 @@
 const imageInput = document.getElementById("imageInput");
 const preview = document.getElementById("preview");
 
+const rotateBtn = document.getElementById("rotateBtn");
+const brightness = document.getElementById("brightness");
+
+let rotation = 0;
+
+// انتخاب عکس
 imageInput.addEventListener("change", function () {
 
     const file = this.files[0];
@@ -16,5 +22,21 @@ imageInput.addEventListener("change", function () {
     };
 
     reader.readAsDataURL(file);
+
+});
+
+// چرخش
+rotateBtn.addEventListener("click", function () {
+
+    rotation += 90;
+
+    preview.style.transform = `rotate(${rotation}deg)`;
+
+});
+
+// روشنایی
+brightness.addEventListener("input", function () {
+
+    preview.style.filter = `brightness(${brightness.value}%)`;
 
 });
