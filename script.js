@@ -10,7 +10,7 @@ const settingBtn = document.getElementById("settingBtn");
 
 // Photo Editor
 photoBtn.addEventListener("click", () => {
-    alert("🚧 Photo Editor - Coming Soon");
+    window.location.href = "photo-editor.html";
 });
 
 // Video Editor
